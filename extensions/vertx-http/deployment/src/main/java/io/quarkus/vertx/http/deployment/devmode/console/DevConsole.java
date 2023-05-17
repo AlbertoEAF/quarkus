@@ -17,9 +17,9 @@ import java.util.function.BiFunction;
 import org.eclipse.microprofile.config.Config;
 import org.eclipse.microprofile.config.ConfigProvider;
 import org.jboss.logging.Logger;
+import org.yaml.snakeyaml.LoaderOptions;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.SafeConstructor;
-import org.yaml.snakeyaml.LoaderOptions;
 
 import io.netty.handler.codec.http.HttpHeaderNames;
 import io.quarkus.builder.Version;
