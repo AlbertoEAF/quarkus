@@ -19,6 +19,7 @@ import org.eclipse.microprofile.config.ConfigProvider;
 import org.jboss.logging.Logger;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.SafeConstructor;
+import org.yaml.snakeyaml.LoaderOptions;
 
 import io.netty.handler.codec.http.HttpHeaderNames;
 import io.quarkus.builder.Version;
@@ -75,7 +76,7 @@ public class DevConsole implements Handler<RoutingContext> {
             synchronized (extensions) {
                 if (extensions.isEmpty()) {
                     try {
-                        final Yaml yaml = new Yaml(new SafeConstructor());
+                        final Yaml yaml = new Yaml(new SafeConstructor(new LoaderOptions()));
                         ClassPathUtils.consumeAsPaths("/META-INF/quarkus-extension.yaml", p -> {
                             try {
                                 final String desc;
